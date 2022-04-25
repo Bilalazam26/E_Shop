@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">E-Shop</string>
+    <string name="login_btn">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="phone_input">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forget Password?</string>
+    <string name="admin_panel_link">I\'m an Admin</string>
+    <string name="Register">Register</string>
+</resources>

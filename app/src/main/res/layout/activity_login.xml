@@ -22,7 +22,8 @@
         android:ems="10"
         android:hint="@string/phone_input"
         android:inputType="phone"
-        android:padding="10dp" />
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/textView2"
@@ -50,7 +51,8 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:padding="10dp" />
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/sign_in_btn"
@@ -82,14 +84,14 @@
             style="@style/Material.Drawable.CheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
             android:gravity="center_vertical"
             android:text="@string/remember_me"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
             android:textStyle="bold"
             app:cbd_strokeColor="@color/colorPrimary"
-            tools:ignore="TouchTargetSizeCheck"
-            android:layout_marginEnd="50dp"/>
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/forgot_password_link"
@@ -99,7 +101,7 @@
             android:text="@string/forgot_password"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
 
     </LinearLayout>

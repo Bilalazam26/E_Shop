@@ -8,4 +8,6 @@
     <string name="forgot_password">Forget Password?</string>
     <string name="admin_panel_link">I\'m an Admin</string>
     <string name="Register">Register</string>
+    <string name="name_input">Enter your name</string>
+    <string name="Log_out">Log Out</string>
 </resources>

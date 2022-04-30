@@ -30,11 +30,10 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/input_design"
-        android:drawableStart="@drawable/ic_baseline_phone_24"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="@string/phone_input"
-        android:inputType="phone"
+        android:hint="@string/name_input"
+        android:inputType="text"
         android:padding="10dp"
         tools:ignore="TouchTargetSizeCheck" />
 

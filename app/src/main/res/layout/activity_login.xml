@@ -126,7 +126,7 @@
         android:layout_alignTop="@+id/sign_in_btn"
         android:layout_marginStart="0dp"
         android:layout_marginTop="75dp"
-        android:text="@string/admin_panel_link"
+        android:text="@string/not_admin_panel_link"
         android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         android:visibility="invisible" />

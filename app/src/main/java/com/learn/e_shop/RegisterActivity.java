@@ -98,7 +98,6 @@ public class RegisterActivity extends AppCompatActivity {
                             }
                         }
                     });
-
                 } else {
                     Toast.makeText(RegisterActivity.this, "This phone is already exist...", Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
@@ -115,7 +114,3 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 }
-
-
-
-

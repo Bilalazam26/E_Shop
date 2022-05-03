@@ -7,5 +7,4 @@ public class Prevalent {
     public static final String userPhoneKey = "UserPhone";
     public static final String userPasswordKey = "UserPassword";
 
-
 }

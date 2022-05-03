@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button logIn;
     private EditText phone_input, password_input;
     private CheckBox rememberMe;
+    private TextView adminLink, notAdminLink;
+    private String dbParentName = "Users";
 
     private ProgressDialog progressDialog;
 
@@ -42,6 +45,10 @@ public class LoginActivity extends AppCompatActivity {
         phone_input = findViewById(R.id.input_phone);
         password_input = findViewById(R.id.input_password);
         rememberMe = findViewById(R.id.remember_me_chk);
+
+        adminLink = findViewById(R.id.admin_panel_link);
+        notAdminLink = findViewById(R.id.not_admin_panel_link);
+
         Paper.init(this);
 
 
@@ -50,12 +57,33 @@ public class LoginActivity extends AppCompatActivity {
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                logIn();
+                logInUser();
+            }
+        });
+
+        adminLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                logIn.setText("Login Admin");
+                adminLink.setVisibility(View.INVISIBLE);
+                notAdminLink.setVisibility(View.VISIBLE);
+                dbParentName = "Admin";
+            }
+        });
+
+        notAdminLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logIn.setText("Login");
+                notAdminLink.setVisibility(View.INVISIBLE);
+                adminLink.setVisibility(View.VISIBLE);
+                dbParentName = "Users";
             }
         });
     }
 
-    private void logIn() {
+    private void logInUser() {
         String phone = phone_input.getText().toString();
         String password = password_input.getText().toString();
 
@@ -78,21 +106,30 @@ public class LoginActivity extends AppCompatActivity {
         if (rememberMe.isChecked()) {
             Paper.book().write(Prevalent.userPhoneKey, phone);
             Paper.book().write(Prevalent.userPasswordKey, password);
+            Paper.book().write("USERTYPE", dbParentName);
         }
         final DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.child("Users").child(phone).exists()) {
+                if(snapshot.child(dbParentName).child(phone).exists()) {
 
-                    User user = snapshot.child("Users").child(phone).getValue(User.class);
+                    User user = snapshot.child(dbParentName).child(phone).getValue(User.class);
                     if(user.getPassword().equals(password)) {
+                        if (dbParentName.equals("Users")) {
+                            Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            intent.putExtra("user", (Serializable) user);
+                            startActivity(intent);
+                        } else if (dbParentName.equals("Admin")) {
+                            Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                            Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
+                            intent.putExtra("user", (Serializable) user);
+                            startActivity(intent);
+                        }
 
-                        Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
-                        progressDialog.dismiss();
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        intent.putExtra("user", (Serializable) user);
-                        startActivity(intent);
 
                     } else {
                         Toast.makeText(LoginActivity.this, "Wrong password, Please try again!", Toast.LENGTH_SHORT).show();

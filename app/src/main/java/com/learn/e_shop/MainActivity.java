@@ -19,6 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.learn.e_shop.Model.User;
 import com.learn.e_shop.Prevalent.Prevalent;
 
+import java.io.Serializable;
+
 import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,26 +53,33 @@ public class MainActivity extends AppCompatActivity {
         });
         String currentUserPhone = Paper.book().read(Prevalent.userPhoneKey);
         String currentUserPassword = Paper.book().read(Prevalent.userPasswordKey);
-        if(currentUserPhone != null && currentUserPassword != null) {
+        String dbParentName = Paper.book().read("USERTYPE");
+        if(currentUserPhone != null && currentUserPassword != null && dbParentName != null) {
 
-            Authenticate(currentUserPhone, currentUserPassword);
+            Authenticate(currentUserPhone, currentUserPassword, dbParentName);
         }
     }
 
-    public void Authenticate(String phone, String password) {
+    public void Authenticate(String phone, String password, String dbParentName) {
         final DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.child("Users").child(phone).exists()) {
+                if(snapshot.child(dbParentName).child(phone).exists()) {
 
-                    User user = snapshot.child("Users").child(phone).getValue(User.class);
+                    User user = snapshot.child(dbParentName).child(phone).getValue(User.class);
                     if(user.getPassword().equals(password)) {
 
                         Toast.makeText(MainActivity.this, "Welcome Back", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                        startActivity(intent);
+                        if (dbParentName.equals("Admin")) {
+                            Intent intent = new Intent(MainActivity.this, AdminCategoryActivity.class);
+                            startActivity(intent);
+                        } else if (dbParentName.equals("Users")) {
+                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                            intent.putExtra("user", (Serializable) user);
+                            startActivity(intent);
+                        }
 
                     } else {
                         Toast.makeText(MainActivity.this, "Wrong password, Please try again!", Toast.LENGTH_SHORT).show();
@@ -84,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

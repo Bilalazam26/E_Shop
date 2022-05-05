@@ -77,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else if (dbParentName.equals("Users")) {
                             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                            intent.putExtra("user", (Serializable) user);
+                            intent.putExtra("user",  user);
+                            Prevalent.currentUser = user;
                             startActivity(intent);
                         }
 

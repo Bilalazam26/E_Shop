@@ -121,6 +121,7 @@ public class LoginActivity extends AppCompatActivity {
                             progressDialog.dismiss();
                             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                             intent.putExtra("user", (Serializable) user);
+                            Prevalent.currentUser = user;
                             startActivity(intent);
                         } else if (dbParentName.equals("Admin")) {
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();

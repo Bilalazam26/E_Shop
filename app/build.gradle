@@ -53,5 +53,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-storage'
     implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.firebaseui:firebase-ui-database:8.0.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'io.github.pilgr:paperdb:2.7.2'
 }

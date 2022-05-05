@@ -6,15 +6,19 @@ public class User implements Serializable {
     private String name;
     private String phone;
     private String password;
+    private String image;
+    private String address;
 
     public User() {
 
     }
 
-    public User(String name, String phone, String password) {
+    public User(String name, String phone, String password, String image, String address) {
         this.name = name;
         this.phone = phone;
         this.password = password;
+        this.image = image;
+        this.address = address;
     }
 
     public String getName() {
@@ -39,5 +43,21 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

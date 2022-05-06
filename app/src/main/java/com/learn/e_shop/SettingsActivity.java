@@ -152,8 +152,8 @@ public class SettingsActivity extends AppCompatActivity {
                         userMap.put("image", myUrl);
                         ref.child(Prevalent.currentUser.getPhone()).updateChildren(userMap);
                         progressDialog.dismiss();
-                        startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
                         Toast.makeText(SettingsActivity.this, "Profile Information updated Successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
                         finish();
                     } else {
                         progressDialog.dismiss();

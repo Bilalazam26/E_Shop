@@ -1,6 +1,8 @@
 package com.learn.e_shop.Model;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
 
     public String name, pid, describtion, price, time, date, category, image;
 

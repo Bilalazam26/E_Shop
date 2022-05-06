@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,80 +7,86 @@
 
     tools:context=".AdminAddNewProductActivity">
 
-    <ImageView
-        android:id="@+id/select_product_image"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:layout_below="@id/product_price"
-        android:layout_alignParentEnd="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:cropToPadding="false"
-        app:srcCompat="@drawable/select_product_image" />
 
-    <EditText
-        android:id="@+id/product_name"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/add_category_product"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/input_design"
-        android:ems="10"
-        android:hint="Product Name..."
-        android:inputType="textImeMultiLine"
-        android:padding="20dp" />
+        android:layout_height="match_parent" >
 
-    <MultiAutoCompleteTextView
-        android:id="@+id/product_describtion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/product_name"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/input_design"
-        android:ems="10"
-        android:hint="Product Describtion..."
-        android:inputType="textMultiLine"
-        android:padding="20dp" />
+        <ImageView
+            android:id="@+id/select_product_image"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/product_price"
+            android:layout_alignParentEnd="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:cropToPadding="false"
+            app:srcCompat="@drawable/select_product_image" />
 
-    <EditText
-        android:id="@+id/product_price"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/product_describtion"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/input_design"
-        android:ems="10"
-        android:hint="Product Price..."
-        android:inputType="number|numberDecimal"
-        android:padding="20dp" />
+        <EditText
+            android:id="@+id/product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/add_category_product"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/input_design"
+            android:ems="10"
+            android:hint="Product Name..."
+            android:inputType="textImeMultiLine"
+            android:padding="20dp" />
 
-    <Button
-        android:id="@+id/add_new_product"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/select_product_image"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/buttons"
-        android:text="Add Product"
-        android:textColor="@color/white"
-        android:textSize="20sp" />
+        <MultiAutoCompleteTextView
+            android:id="@+id/product_describtion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_name"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/input_design"
+            android:ems="10"
+            android:hint="Product Describtion..."
+            android:inputType="textMultiLine"
+            android:padding="20dp" />
 
-    <TextView
-        android:id="@+id/add_category_product"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:textSize="24sp" />
+        <EditText
+            android:id="@+id/product_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_describtion"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/input_design"
+            android:ems="10"
+            android:hint="Product Price..."
+            android:inputType="number|numberDecimal"
+            android:padding="20dp" />
+
+        <Button
+            android:id="@+id/add_new_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/select_product_image"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/buttons"
+            android:text="Add Product"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/add_category_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:textSize="24sp" />
 
 
+    </RelativeLayout>
 
-</RelativeLayout>
+</ScrollView>

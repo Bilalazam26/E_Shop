@@ -80,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/profile_img_change_btn"
         android:background="@drawable/input_design"
+        android:inputType="phone"
         android:hint="Phone Number..."
         android:padding="10dp"
         android:layout_margin="25dp"/>
@@ -94,6 +95,7 @@
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/input_design"
+        android:inputType="textPersonName"
         android:hint="Full Name..."
         android:padding="10dp" />
 
@@ -104,6 +106,7 @@
         android:background="@drawable/input_design"
         android:layout_below="@id/full_name_settings"
         android:hint="Address..."
+        android:inputType="text"
         android:padding="10dp"
         android:layout_margin="25dp"/>
 

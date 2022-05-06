@@ -16,7 +16,7 @@
         android:layout_marginBottom="50dp"
         android:fontFamily="@font/baloo"
         android:text="@string/sign_up"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="48sp" />
 
 
@@ -71,7 +71,6 @@
         tools:ignore="TouchTargetSizeCheck" />
 
 
-
     <Button
         android:id="@+id/sign_up_btn"
         android:layout_width="match_parent"
@@ -83,7 +82,7 @@
         android:layout_marginBottom="100dp"
         android:background="@drawable/buttons"
         android:text="@string/Register"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/white"
         android:textSize="30sp"
         tools:ignore="DuplicateSpeakableTextCheck" />
 

@@ -38,6 +38,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import java.io.Serializable;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
@@ -47,24 +49,33 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
+    Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        User user = Prevalent.currentUser;
+
+
 
         productRef = FirebaseDatabase.getInstance().getReference().child("products");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Home");
         setSupportActionBar(toolbar);
+
+
         FloatingActionButton fab = findViewById(R.id.fab);
+        intent = new Intent(HomeActivity.this, CartActivity.class);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                startActivity(intent);
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -78,9 +89,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         TextView user_name_txt = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.profile_image);
 
-        String userName = ((User) getIntent().getExtras().getSerializable("user")).getName();
+        String userName = user.getName();
         user_name_txt.setText(userName);
-        Picasso.get().load(Prevalent.currentUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
+        Picasso.get().load(user.getImage()).placeholder(R.drawable.profile).into(profileImageView);
 
         recyclerView = findViewById(R.id.recycler_menu);
         recyclerView.setHasFixedSize(true);
@@ -105,6 +116,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 holder.txt_product_price.setText(model.getPrice()+" L.E");
                 holder.txt_product_describtion.setText("Product Describtion:\n\t"+model.getDescribtion());
                 Picasso.get().load(model.getImage()).into(holder.product_img);
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                        intent.putExtra("pid", model.getPid());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @NonNull
@@ -155,6 +175,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_categories) {
 
         } else if (id == R.id.nav_cart) {
+            startActivity(intent);
 
         } else if (id == R.id.nav_orders) {
 

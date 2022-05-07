@@ -32,6 +32,7 @@ import com.learn.e_shop.ViewHolder.ProductViewHolder;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class CartActivity extends AppCompatActivity {
 
@@ -42,6 +43,8 @@ public class CartActivity extends AppCompatActivity {
 
     int overall_total_price;
 
+    private ArrayList<Cart> cartProducts;
+
 
 
 
@@ -50,6 +53,7 @@ public class CartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
+        cartProducts = new ArrayList();
         recyclerView = findViewById(R.id.cart_list);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -71,6 +75,7 @@ public class CartActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
                 intent.putExtra("Total Price", String.valueOf(overall_total_price));
+                intent.putExtra("Cart Products", cartProducts);
                 startActivity(intent);
             }
         });
@@ -100,6 +105,7 @@ public class CartActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull Cart model) {
 
+                cartProducts.add(model);
                 String price_str = model.getPrice();
                 String quantity_str = model.getQuantity();
                 int price = Integer.parseInt(price_str);
@@ -137,6 +143,7 @@ public class CartActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
+                                                        cartProducts.remove(model);
                                                         String price_str = model.getPrice();
                                                         String quantity_str = model.getQuantity();
                                                         int price = Integer.parseInt(price_str);

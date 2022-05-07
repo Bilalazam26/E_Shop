@@ -16,10 +16,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.learn.e_shop.Model.Cart;
 import com.learn.e_shop.Model.User;
 import com.learn.e_shop.Prevalent.Prevalent;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -30,6 +32,8 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
     private Button confirm;
     private ImageButton back, home;
 
+    ArrayList<Cart> cartProducts;
+
     User currentUser;
 
     private String total_amount;
@@ -39,7 +43,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_final_order);
 
-
+        cartProducts = (ArrayList<Cart>) getIntent().getSerializableExtra("Cart Products");
         currentUser = Prevalent.currentUser;
 
         confirm = findViewById(R.id.confirm_final_order_btn);
@@ -115,6 +119,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         ordersMap.put("city", city_edtxt.getText().toString());
         ordersMap.put("date", getCurrentDate());
         ordersMap.put("state", "not shipped");
+        ordersMap.put("products", cartProducts);
 
         orderRef.updateChildren(ordersMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

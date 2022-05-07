@@ -108,6 +108,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
     }
 
     private void confirmOrder() {
+
         final DatabaseReference orderRef = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentUser.getPhone());
         HashMap<String, Object> ordersMap = new HashMap<>();
 
@@ -120,16 +121,19 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         ordersMap.put("date", getCurrentDate());
         ordersMap.put("state", "not shipped");
         ordersMap.put("products", cartProducts);
-
         orderRef.updateChildren(ordersMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
+
                 if (task.isSuccessful()) {
+
                     FirebaseDatabase.getInstance().getReference().child("Cart List").child("User View").child(Prevalent.currentUser.getPhone()).removeValue()
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
+
                                 if (task.isSuccessful()) {
+
                                     Toast.makeText(ConfirmFinalOrderActivity.this, "Your Order has been placed successfully", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(ConfirmFinalOrderActivity.this, HomeActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

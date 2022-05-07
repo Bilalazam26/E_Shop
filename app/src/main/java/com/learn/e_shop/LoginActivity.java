@@ -119,9 +119,10 @@ public class LoginActivity extends AppCompatActivity {
                         if (dbParentName.equals("Users")) {
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
+                            Prevalent.currentUser = user;
                             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                             intent.putExtra("user", (Serializable) user);
-                            Prevalent.currentUser = user;
+                            Toast.makeText(LoginActivity.this, "prevalent setted", Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         } else if (dbParentName.equals("Admin")) {
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();

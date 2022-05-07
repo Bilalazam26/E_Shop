@@ -61,6 +61,7 @@
         android:layout_below="@id/register_phone"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
+        android:layout_marginBottom="25dp"
         android:background="@drawable/input_design"
         android:drawableStart="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
@@ -69,6 +70,23 @@
         android:inputType="textPassword"
         android:padding="10dp"
         tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/register_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_password"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/input_design"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Verification Code"
+        android:inputType="numberSigned"
+        android:padding="10dp"
+        tools:ignore="TouchTargetSizeCheck" />
+
 
 
     <Button
@@ -84,6 +102,22 @@
         android:text="@string/Register"
         android:textColor="@color/white"
         android:textSize="30sp"
+        android:visibility="invisible"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/verify_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/buttons"
+        android:text="Send Verification Code"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
 </RelativeLayout>

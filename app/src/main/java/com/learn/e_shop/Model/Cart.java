@@ -2,6 +2,8 @@ package com.learn.e_shop.Model;
 
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Cart implements Serializable {
 
@@ -57,5 +59,12 @@ public class Cart implements Serializable {
 
     public void setDiscount(String discount) {
         this.discount = discount;
+    }
+
+    public String getCurrentDate() {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM dd, yyyy");
+        String time = simpleDateFormat.format(calendar.getTime());
+        return time;
     }
 }

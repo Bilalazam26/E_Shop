@@ -5,12 +5,17 @@
         <item name="colorPrimary">#303030</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="colorAccent">#707070</item>
+
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/white</item>
         <!-- Customize your theme here. -->
     </style>
 
     <style name="Theme.E_Shop.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/white</item>
     </style>
 
     <style name="Theme.E_Shop.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
 
     private String categoryName, name, describtion, price;
     private TextView add_category_product;
+    private ImageButton back;
 
     private Button addNewProductButton;
     private ImageView input_product_image;
@@ -76,6 +78,15 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         input_product_describtion = findViewById(R.id.product_describtion);
         input_product_price = findViewById(R.id.product_price);
 
+        back = findViewById(R.id.back_btn);
+        back.setOnClickListener(new View.OnClickListener(
+
+        ) {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         input_product_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -6,17 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.E_Shop.AppBarOverlay">
 
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             app:popupTheme="@style/Theme.E_Shop.PopupOverlay" />
+
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -28,8 +32,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
-        android:backgroundTint="@color/white"
         android:layout_marginBottom="16dp"
-        app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+        android:backgroundTint="@color/colorPrimary"
+        app:srcCompat="@drawable/ic_baseline_shopping_cart_24"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

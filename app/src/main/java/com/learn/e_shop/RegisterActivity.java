@@ -1,6 +1,7 @@
 package com.learn.e_shop;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -47,11 +48,13 @@ public class RegisterActivity extends AppCompatActivity {
         input_name = findViewById(R.id.register_name);
         input_password = findViewById(R.id.register_password);
         input_phone = findViewById(R.id.register_phone);
-        verification_code = findViewById(R.id.register_code);
-        verify_phone = findViewById(R.id.verify_btn);
-        verify_phone.setOnClickListener(new View.OnClickListener() {
+
+
+
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 int min = 1000;
                 int max = 9999;
                 int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
@@ -59,13 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(RegisterActivity.this, "the code is "+randomCode, Toast.LENGTH_SHORT).show();
                 verifyUserByPhone(randomCode, input_phone.getText().toString());
 
-            }
-        });
-
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createAccount();
+                createDialog();
 
             }
         });
@@ -78,6 +75,9 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter your name...", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(phone)) {
             Toast.makeText(this, "Please enter your phone...", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(input_password.getText().toString())) {
+            Toast.makeText(this, "Please enter your password...", Toast.LENGTH_SHORT).show();
+
         } else {
 
             final DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
@@ -133,8 +133,6 @@ public class RegisterActivity extends AppCompatActivity {
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(input_phone.getText().toString(), null, message, null, null);
         Toast.makeText(this, "The Verification Code sent Successfully", Toast.LENGTH_SHORT).show();
-        register.setVisibility(View.VISIBLE);
-        verify_phone.setVisibility(View.INVISIBLE);
     }
 
     private void createAccount() {
@@ -167,8 +165,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         }
 
-
-
     }
 
     private void validatePhone(String name, String phone, String password) {
@@ -192,6 +188,27 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void createDialog() {
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        View dialogLayout = getLayoutInflater().inflate(R.layout.verify_phone, null);
+        verify_phone = dialogLayout.findViewById(R.id.verify_btn);
+        verification_code = dialogLayout.findViewById(R.id.edtxt_code);
+        verify_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                createAccount();
+            }
+        });
+        dialogBuilder.setView(dialogLayout);
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+        alertDialog.setCancelable(false);
+        alertDialog.setTitle("Phone Verification");
+        alertDialog.show();
     }
 
 }

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.learn.e_shop">
 
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.E_Shop">
+        <activity
+            android:name=".SearchOnJumiaActivity"
+            android:exported="false" />
         <activity
             android:name=".ConfirmFinalOrderActivity"
             android:exported="false" />

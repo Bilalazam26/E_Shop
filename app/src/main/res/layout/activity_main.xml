@@ -5,53 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".MainActivity" >
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:contentDescription="@string/app_name"
-        app:srcCompat="@drawable/applogo" />
+    android:background="@drawable/main_background"
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@id/imageView3"
         android:layout_alignParentEnd="false"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:layout_marginTop="50dp"
-        android:text="@string/app_name"
+        android:text="E  -  C o m m e r c e   P o r t a l"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="44sp"
-        android:textStyle="bold" />
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/sign_in_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:layout_below="@+id/textView"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginRight="25dp"
         android:background="@drawable/buttons"
+        android:drawableRight="@drawable/ic_baseline_login_24"
+        android:paddingStart="50dp"
+        android:paddingEnd="75dp"
         android:text="@string/login_btn"
+        android:textAlignment="textStart"
         android:textColor="@color/white"
-        android:textSize="30sp" />
+        android:textSize="48sp" />
 
     <Button
         android:id="@+id/sign_up_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:layout_below="@+id/sign_in_btn"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="25dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginRight="25dp"
         android:background="@drawable/input_design"
+        android:drawableEnd="@drawable/ic_baseline_person_add_24"
+        android:paddingStart="50dp"
+        android:paddingEnd="65dp"
         android:text="@string/sign_up"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="30sp" />
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimary"
+        android:textSize="48sp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="125dp"
+        app:srcCompat="@drawable/logo_with_white_bg" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/imageView2"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/logo_text" />
+
 </RelativeLayout>

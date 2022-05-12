@@ -6,45 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".ConfirmFinalOrderActivity">
 
+
     <LinearLayout
         android:id="@+id/name_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
 
 
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="15dp"
-        >
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="15dp">
 
 
         <ImageButton
             android:id="@+id/back_btn"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+
+            android:layout_gravity="center|center_vertical"
             android:background="@color/ic_launcher_background"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
+            android:foregroundGravity="center"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/back_btn"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="35dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="15dp"
             android:text="Confirm Your Shipment Details"
-            android:textAlignment="textStart"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/home_btn"
-            android:layout_width="30dp"
-            android:layout_marginStart="15dp"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
             android:background="@color/ic_launcher_background"
             app:srcCompat="@drawable/ic_baseline_home_24"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -52,12 +56,10 @@
 
     </LinearLayout>
 
-
-
     <EditText
         android:id="@+id/shipment_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/name_bar"
         android:layout_marginStart="25dp"
         android:layout_marginTop="50dp"
@@ -73,7 +75,7 @@
     <EditText
         android:id="@+id/shipment_phone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/shipment_name"
         android:layout_marginStart="25dp"
         android:layout_marginTop="50dp"
@@ -89,7 +91,7 @@
     <EditText
         android:id="@+id/shipment_city"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/shipment_phone"
         android:layout_marginStart="25dp"
         android:layout_marginTop="50dp"
@@ -105,7 +107,7 @@
     <EditText
         android:id="@+id/shipment_address"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/shipment_city"
         android:layout_marginStart="25dp"
         android:layout_marginTop="50dp"
@@ -121,12 +123,12 @@
     <Button
         android:id="@+id/confirm_final_order_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/buttons"
         android:text="Confirm"
         android:textColor="@color/white"

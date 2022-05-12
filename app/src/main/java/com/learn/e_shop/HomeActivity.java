@@ -183,6 +183,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
             startActivity(intent);
 
+        } else if (id == R.id.nav_jumia) {
+            Intent intent = new Intent(HomeActivity.this, SearchOnJumiaActivity.class);
+            startActivity(intent);
+
         } else if (id == R.id.nav_logout) {
             Paper.book().destroy();
             Intent intent = new Intent(HomeActivity.this, MainActivity.class);

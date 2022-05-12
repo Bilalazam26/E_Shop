@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
-        <item>@font/</item>
         <item>@font/adamina</item>
         <item>@font/arbutus</item>
+        <item>@font/raleway_black</item>
+        <item>@font/raleway_extrabold</item>
+        <item>@font/raleway_extralight</item>
+        <item>@font/raleway_extralight_italic</item>
+        <item>@font/raleway_semibold</item>
     </array>
 </resources>

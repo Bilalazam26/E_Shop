@@ -19,9 +19,9 @@
             android:layout_marginTop="10dp"
             android:text="Product Name"
             android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/product_image"
@@ -35,12 +35,12 @@
             android:id="@+id/product_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Product Price"
             android:layout_below="@+id/product_image"
+            android:text="Product Price"
             android:textAlignment="center"
+            android:textColor="@color/colorAccent"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/product_describtion"
@@ -51,7 +51,7 @@
             android:layout_marginBottom="10dp"
             android:text="Product Description"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"
             android:textStyle="bold" />
 

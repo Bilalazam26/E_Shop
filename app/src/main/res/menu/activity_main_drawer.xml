@@ -20,6 +20,11 @@
             android:title="Categories"
             android:iconTint="@color/white" />
         <item
+            android:id="@+id/nav_jumia"
+            android:icon="@drawable/cart_icon_foreground"
+            android:title="Open Amazon"
+            android:iconTint="@color/white" />
+        <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/ic_baseline_settings_24"
             android:title="Settings"

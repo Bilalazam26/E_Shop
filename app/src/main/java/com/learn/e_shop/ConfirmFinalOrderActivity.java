@@ -19,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.learn.e_shop.Model.Cart;
 import com.learn.e_shop.Model.User;
 import com.learn.e_shop.Prevalent.Prevalent;
+import com.learn.e_shop.Threads.DateThread;
+import com.learn.e_shop.Threads.TimeThread;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -112,13 +114,21 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         final DatabaseReference orderRef = FirebaseDatabase.getInstance().getReference().child("Orders").child(Prevalent.currentUser.getPhone());
         HashMap<String, Object> ordersMap = new HashMap<>();
 
+        DateThread dateThread = new DateThread();
+        TimeThread timeThread = new TimeThread();
+        dateThread.start();
+        timeThread.start();
+
+        String date = dateThread.getDate();
+        String time = timeThread.getTime();
+
         ordersMap.put("total amount", total_amount);
         ordersMap.put("name", name);
         ordersMap.put("phone", phone);
         ordersMap.put("address", address_edtxt.getText().toString());
-        ordersMap.put("time", getCurrentTimee());
+        ordersMap.put("time", time);
         ordersMap.put("city", city_edtxt.getText().toString());
-        ordersMap.put("date", getCurrentDate());
+        ordersMap.put("date", date);
         ordersMap.put("state", "not shipped");
         ordersMap.put("products", cartProducts);
         orderRef.updateChildren(ordersMap).addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -10,7 +10,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,8 +41,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     private CircleImageView profile_img;
     private EditText edt_name, edt_phone, edt_address;
-    private TextView close, update, chng_profile_img;
-
+    private TextView chng_profile_img;
+    private Button update;
+    private ImageButton  close;
     private Uri imageUri;
     private String myUrl = "";
 
@@ -59,7 +62,7 @@ public class SettingsActivity extends AppCompatActivity {
         edt_name = findViewById(R.id.full_name_settings);
         edt_address = findViewById(R.id.address_setting);
         edt_phone = findViewById(R.id.phone_settings);
-        close = findViewById(R.id.close_profile_settings);
+        close = findViewById(R.id.back_btn);
         update = findViewById(R.id.update_profile_settings);
         chng_profile_img = findViewById(R.id.profile_img_change_btn);
 
